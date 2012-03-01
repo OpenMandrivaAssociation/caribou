@@ -15,13 +15,13 @@ License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	desktop-file-utils
-BuildRequires:	gnome-doc-utils
-BuildRequires:	intltool
 BuildRequires:	gettext
+BuildRequires:	gnome-doc-utils
+BuildRequires:	gobject-introspection
+BuildRequires:	intltool
 BuildRequires:	python-virtkey
 BuildRequires:	python-at-spi
 BuildRequires:	python-gi
-Requires:	pyatspi
 BuildRequires:	python-devel
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(clutter-1.0)
@@ -34,6 +34,7 @@ BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(pyclutter-1.0)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(xtst)
+Requires:	pyatspi
 
 %description
 Caribou is a text entry application that currently manifests itself as
