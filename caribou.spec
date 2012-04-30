@@ -14,6 +14,7 @@ Group:		Accessibility
 License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		SOURCES/caribou-0.4.2_gee0.8.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -22,7 +23,7 @@ BuildRequires:	intltool
 BuildRequires:	python-virtkey
 BuildRequires:	python-at-spi
 BuildRequires:	python-gi
-BuildRequires:	python-devel
+BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(clutter-1.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
@@ -32,6 +33,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(pygobject-3.0)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(xtst)
 Requires:	pyatspi
 
@@ -83,13 +85,13 @@ developing applications that use %{name}.
 %prep
 %setup -q
 %apply_patches
+autoreconf -fi
 
 %build
 %configure2_5x --disable-static
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
