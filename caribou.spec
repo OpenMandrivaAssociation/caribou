@@ -27,11 +27,10 @@ BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(clutter-1.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gdk-3.0)
-BuildRequires:	pkgconfig(gee-1.0)
+BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libxklavier)
-#BuildRequires:	pkgconfig(pyclutter-1.0)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(xtst)
 Requires:	pyatspi
