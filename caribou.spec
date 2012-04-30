@@ -31,7 +31,7 @@ BuildRequires:	pkgconfig(gee-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libxklavier)
-BuildRequires:	pkgconfig(pyclutter-1.0)
+#BuildRequires:	pkgconfig(pyclutter-1.0)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(xtst)
 Requires:	pyatspi
