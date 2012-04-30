@@ -14,7 +14,6 @@ Group:		Accessibility
 License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		SOURCES/caribou-0.4.2_gee0.8.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -28,7 +27,7 @@ BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(clutter-1.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gdk-3.0)
-BuildRequires:	pkgconfig(gee-0.8)
+BuildRequires:	pkgconfig(gee-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libxklavier)
