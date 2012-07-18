@@ -6,7 +6,7 @@
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
-Version:	0.4.2
+Version:	0.4.3
 Release:	1
 Group:		Accessibility
 License:	LGPLv2+
