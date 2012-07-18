@@ -1,10 +1,8 @@
-%define url_ver	%(echo %{version}|cut -d. -f1,2)
-
-%define major		0
-%define gir_major	1.0
-%define libname		%mklibname %{name} %{major}
-%define develname	%mklibname -d %{name}
-%define girname		%mklibname %{name}-gir %{gir_major}
+%define major	0
+%define gimajor	1.0
+%define libname	%mklibname %{name} %{major}
+%define devname	%mklibname -d %{name}
+%define girname	%mklibname %{name}-gir %{gimajor}
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
@@ -13,7 +11,7 @@ Release:	1
 Group:		Accessibility
 License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -70,14 +68,14 @@ Group:		System/Libraries
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
-%package -n	%{develname}
+%package -n	%{devname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
@@ -126,10 +124,10 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_libdir}/*.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/Caribou-%{gir_major}.typelib
+%{_libdir}/girepository-1.0/Caribou-%{gimajor}.typelib
 
-%files -n %{develname}
+%files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
-%{_datadir}/gir-1.0/Caribou-%{gir_major}.gir
+%{_datadir}/gir-1.0/Caribou-%{gimajor}.gir
 
