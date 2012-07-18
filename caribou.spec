@@ -24,7 +24,7 @@ BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(clutter-1.0)
 BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gee-1.0)
-BuildRequires:	pkfconfig(gnome-doc-utils)
+BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
