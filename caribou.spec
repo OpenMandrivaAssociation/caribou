@@ -15,7 +15,6 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{name}-%{version}.tar.x
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
-BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	python-virtkey
 BuildRequires:	python-at-spi
@@ -23,10 +22,11 @@ BuildRequires:	python-gi
 BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(clutter-1.0)
-BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gee-1.0)
+BuildRequires:	pkfconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
+BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(pygobject-3.0)
