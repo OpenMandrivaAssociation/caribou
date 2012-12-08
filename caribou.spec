@@ -1,38 +1,41 @@
-%define major	0
-%define gimajor	1.0
-%define libname	%mklibname %{name} %{major}
-%define devname	%mklibname -d %{name}
-%define girname	%mklibname %{name}-gir %{gimajor}
+%define url_ver	%(echo %{version}|cut -d. -f1,2)
+
+%define major		0
+%define gir_major	1.0
+%define libname		%mklibname %{name} %{major}
+%define develname	%mklibname -d %{name}
+%define girname		%mklibname %{name}-gir %{gir_major}
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
-Version:	0.4.3
+Version:	0.4.5
 Release:	1
 Group:		Accessibility
 License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
+BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	intltool
 BuildRequires:	python-virtkey
 BuildRequires:	python-at-spi
 BuildRequires:	python-gi
 BuildRequires:	vala
 BuildRequires:	vala-devel
+BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(clutter-1.0)
+BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gdk-3.0)
 BuildRequires:	pkgconfig(gee-1.0)
-BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
-BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(xtst)
-Requires:	pyatspi
+Requires:	python-pyatspi
 
 %description
 Caribou is a text entry application that currently manifests itself as
@@ -68,14 +71,14 @@ Group:		System/Libraries
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
-%package -n	%{devname}
+%package -n	%{develname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{devname}
+%description -n %{develname}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
@@ -124,10 +127,9 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_libdir}/*.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/Caribou-%{gimajor}.typelib
+%{_libdir}/girepository-1.0/Caribou-%{gir_major}.typelib
 
-%files -n %{devname}
+%files -n %{develname}
 %{_includedir}/*
 %{_libdir}/*.so
-%{_datadir}/gir-1.0/Caribou-%{gimajor}.gir
-
+%{_datadir}/gir-1.0/Caribou-%{gir_major}.gir
