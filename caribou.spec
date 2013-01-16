@@ -8,7 +8,7 @@
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
-Version:	0.4.6
+Version:	0.4.7
 Release:	1
 Group:		Accessibility
 License:	LGPLv2+
@@ -133,3 +133,4 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_includedir}/*
 %{_libdir}/*.so
 %{_datadir}/gir-1.0/Caribou-%{api}.gir
+
