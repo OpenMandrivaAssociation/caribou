@@ -23,6 +23,7 @@ BuildRequires:	python-at-spi
 BuildRequires:	python-gi
 BuildRequires:	vala
 BuildRequires:	vala-devel
+BuildRequires:	python-pkg-resources
 BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(clutter-1.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
@@ -112,6 +113,7 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_datadir}/dbus-1/services/org.gnome.Caribou.Antler.service
 %{_libexecdir}/antler-keyboard
 %{_datadir}/applications/caribou.desktop
+%{_datadir}/vala/vapi/caribou*
 %{_sysconfdir}/xdg/autostart/caribou-autostart.desktop
 %{_datadir}/glib-2.0/schemas/*
 %{py_puresitedir}/caribou
@@ -132,5 +134,5 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
+%{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/Caribou-%{api}.gir
-
