@@ -8,7 +8,7 @@
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
-Version:	0.4.7
+Version:	0.4.11
 Release:	1
 Group:		Accessibility
 License:	LGPLv2+
