@@ -97,9 +97,7 @@ autoreconf -fi
 
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
-echo "NoDisplay=true" >> %{buildroot}%{_datadir}/applications/caribou.desktop
 echo "OnlyShowIn=GNOME;" >> %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart.desktop
-desktop-file-validate %{buildroot}%{_datadir}/applications/caribou.desktop
 desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart.desktop || :
 
 %find_lang caribou
@@ -112,7 +110,6 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_datadir}/antler
 %{_datadir}/dbus-1/services/org.gnome.Caribou.Antler.service
 %{_libexecdir}/antler-keyboard
-%{_datadir}/applications/caribou.desktop
 %{_datadir}/vala/vapi/caribou*
 %{_sysconfdir}/xdg/autostart/caribou-autostart.desktop
 %{_datadir}/glib-2.0/schemas/*
@@ -136,3 +133,4 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/Caribou-%{api}.gir
+
