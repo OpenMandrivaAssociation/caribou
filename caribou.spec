@@ -9,7 +9,7 @@
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
 Version:	0.4.11
-Release:	3
+Release:	4
 Group:		Accessibility
 License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
