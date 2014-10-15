@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
 %define major	0
@@ -8,7 +10,7 @@
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
-Version:	0.4.11
+Version:	0.4.15
 Release:	1
 Group:		Accessibility
 License:	LGPLv2+
@@ -18,17 +20,15 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{ver
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
 BuildRequires:	intltool
-BuildRequires:	python-virtkey
-BuildRequires:	python-at-spi
-BuildRequires:	python-gi
+BuildRequires:	python2-gi
 BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	python-pkg-resources
 BuildRequires:	pkgconfig(gee-0.8)
+BuildRequires:	pkgconfig(atspi-2)
 BuildRequires:	pkgconfig(clutter-1.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gdk-3.0)
-BuildRequires:	pkgconfig(gee-1.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
@@ -36,7 +36,6 @@ BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(xtst)
-Requires:	python-pyatspi
 
 %description
 Caribou is a text entry application that currently manifests itself as
@@ -86,10 +85,10 @@ developing applications that use %{name}.
 %prep
 %setup -q
 %apply_patches
-autoreconf -fi
 
 %build
-%configure2_5x --disable-static
+export PYTHON=%__python2
+%configure --disable-schemas-compile
 %make
 
 %install
@@ -104,16 +103,17 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 
 %files -f caribou.lang
 %doc NEWS README
-%{_bindir}/caribou
 %{_bindir}/caribou-preferences
 %{_datadir}/caribou
+%{_libexecdir}/caribou
 %{_datadir}/antler
 %{_datadir}/dbus-1/services/org.gnome.Caribou.Antler.service
 %{_libexecdir}/antler-keyboard
 %{_datadir}/vala/vapi/caribou*
 %{_sysconfdir}/xdg/autostart/caribou-autostart.desktop
 %{_datadir}/glib-2.0/schemas/*
-%{py_puresitedir}/caribou
+%{_datadir}/dbus-1/services/org.gnome.Caribou.Daemon.service
+%{py2_puresitedir}/caribou
 
 %files gtk2
 %{_libdir}/gtk-2.0/modules/libcaribou-gtk-module.so
