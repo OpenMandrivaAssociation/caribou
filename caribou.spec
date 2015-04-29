@@ -10,7 +10,7 @@
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
-Version:	0.4.15
+Version:	 0.4.18.1
 Release:	2
 Group:		Accessibility
 License:	LGPLv2+
