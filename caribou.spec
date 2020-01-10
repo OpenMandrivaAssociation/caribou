@@ -84,7 +84,7 @@ developing applications that use %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 export PYTHON=%__python2
