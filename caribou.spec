@@ -11,7 +11,7 @@
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
 Version:	 0.4.21
-Release:	2
+Release:	3
 Group:		Accessibility
 License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
@@ -20,7 +20,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{ver
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
 BuildRequires:	intltool
-BuildRequires:	python2-gi
+BuildRequires:	python-gi
 BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	python-pkg-resources
@@ -87,7 +87,7 @@ developing applications that use %{name}.
 %autopatch -p1
 
 %build
-export PYTHON=%__python2
+export PYTHON=%__python3
 %configure --disable-schemas-compile
 %make
 
@@ -113,7 +113,7 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_sysconfdir}/xdg/autostart/caribou-autostart.desktop
 %{_datadir}/glib-2.0/schemas/*
 %{_datadir}/dbus-1/services/org.gnome.Caribou.Daemon.service
-%{py2_puresitedir}/caribou
+%{py3_puresitedir}/caribou
 
 %files gtk2
 %{_libdir}/gtk-2.0/modules/libcaribou-gtk-module.so
