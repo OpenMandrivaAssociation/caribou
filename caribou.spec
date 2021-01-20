@@ -1,21 +1,28 @@
 %define _disable_ld_no_undefined 1
 
-%define url_ver	%(echo %{version}|cut -d. -f1,2)
+%define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define major	0
-%define api	1.0
-%define libname	%mklibname %{name} %{major}
-%define girname	%mklibname %{name}-gir %{api}
-%define devname	%mklibname -d %{name}
+%define major 0
+%define api 1.0
+%define libname %mklibname %{name} %{major}
+%define girname %mklibname %{name}-gir %{api}
+%define devname %mklibname -d %{name}
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
 Version:	0.4.21
-Release:	4
+Release:	5
 Group:		Accessibility
 License:	LGPLv2+
 URL:		http://live.gnome.org/Caribou
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		caribou-0.4.20-fix-python-exec.patch
+# caribou isn't needed in gnome-shell so don't start there
+Patch1:		change_autostart_cinnamon.patch
+Patch2:		fix-style-css.patch
+Patch3:		Fix-compilation-error.patch
+Patch4:		Fix-subkey-popmenu-not-showing-after-being-dismissed.patch
+Patch5:		xadapter.vala-Remove-XkbKeyTypesMask-and-f.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -41,23 +48,23 @@ BuildRequires:	pkgconfig(xtst)
 Caribou is a text entry application that currently manifests itself as
 a simplified in-place on-screen keyboard.
 
-%package	gtk2
+%package gtk2
 Summary:	GTK2 Integration for %{name}
 Group:		System/Libraries
 Requires:	%{libname} = %{version}-%{release}
 
-%description	gtk2
+%description gtk2
 GTK2 Integration for %{name}.
 
-%package	gtk3
+%package gtk3
 Summary:	GTK3 Integration for %{name}
 Group:		System/Libraries
 Requires:	%{libname} = %{version}-%{release}
 
-%description	gtk3
+%description gtk3
 GTK3 Integration for %{name}.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	Library files for %{name}
 Group:		System/Libraries
 
@@ -71,7 +78,7 @@ Group:		System/Libraries
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
@@ -83,16 +90,15 @@ The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
-export PYTHON=%__python3
+export PYTHON=%{__python3}
 %configure --disable-schemas-compile
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
@@ -133,4 +139,3 @@ desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gir-1.0/Caribou-%{api}.gir
-
