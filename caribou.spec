@@ -13,11 +13,11 @@
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
 Version:	0.4.21
-Release:	11
+Release:	12
 Group:		Accessibility
 License:	LGPLv2+
-URL:		http://live.gnome.org/Caribou
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
+URL:		https://live.gnome.org/Caribou
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		caribou-0.4.20-fix-python-exec.patch
 # caribou isn't needed in gnome-shell so don't start there
 Patch1:		change_autostart_cinnamon.patch
