@@ -35,6 +35,7 @@ BuildRequires:	python-gi
 BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	python-pkg-resources
+BuildRequires:  python%{pyver}dist(zombie-imp)
 BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(atspi-2)
 BuildRequires:	pkgconfig(clutter-1.0)
