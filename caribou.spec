@@ -27,6 +27,10 @@ Patch4:		Fix-subkey-popmenu-not-showing-after-being-dismissed.patch
 Patch5:		xadapter.vala-Remove-XkbKeyTypesMask-and-f.patch
 Patch6:   drop_gir_patch.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:  make
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
