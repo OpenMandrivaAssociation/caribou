@@ -1,6 +1,7 @@
 %define _disable_ld_no_undefined 1
 
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
+%global optflags %{optflags} -Wno-incompatible-pointer-types
 
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
