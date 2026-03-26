@@ -29,8 +29,7 @@ Patch6:   drop_gir_patch.patch
 
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
+BuildRequires:	libtool-base libtool
 BuildRequires:  make
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -103,6 +102,12 @@ developing applications that use %{name}.
 
 %build
 export PYTHON=%{__python3}
+# ej fak ju
+# use libtool instead of slib
+ln -sf %{_bindir}/libtoolize slibtoolize
+export PATH=$PWD:$PATH
+export LIBTOOLIZE=%{_bindir}/libtoolize
+export LIBTOOL=%{_bindir}/libtool
 %configure --disable-schemas-compile
 %make_build
 
