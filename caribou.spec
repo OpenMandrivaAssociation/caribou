@@ -14,7 +14,7 @@
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
 Version:	0.4.21
-Release:	18
+Release:	19
 Group:		Accessibility
 License:	LGPLv2+
 URL:		https://live.gnome.org/Caribou
@@ -30,7 +30,7 @@ Patch6:   drop_gir_patch.patch
 
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool-base libtool
+BuildRequires:	slibtool
 BuildRequires:  make
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -52,6 +52,7 @@ BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(pygobject-3.0)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(sltdl)
 
 %description
 Caribou is a text entry application that currently manifests itself as
@@ -103,12 +104,6 @@ developing applications that use %{name}.
 
 %build
 export PYTHON=%{__python3}
-# ej fak ju
-# use libtool instead of slib
-ln -sf %{_bindir}/libtoolize slibtoolize
-export PATH=$PWD:$PATH
-export LIBTOOLIZE=%{_bindir}/libtoolize
-export LIBTOOL=%{_bindir}/libtool
 %configure --disable-schemas-compile
 %make_build
 
