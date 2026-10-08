@@ -14,7 +14,7 @@
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
 Version:	0.4.21
-Release:	19
+Release:	20
 Group:		Accessibility
 License:	LGPLv2+
 URL:		https://live.gnome.org/Caribou
