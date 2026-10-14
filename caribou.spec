@@ -36,6 +36,8 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
 BuildRequires:	intltool
 BuildRequires:	python-gi
+# automake py-compile still imports imp, which Python 3.12 removed.
+BuildRequires:	python%{pyver}dist(zombie-imp)
 BuildRequires:	vala
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(gee-0.8)
