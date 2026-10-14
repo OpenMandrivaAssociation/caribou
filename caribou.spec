@@ -14,7 +14,7 @@
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
 Version:	0.4.21
-Release:	20
+Release:	21
 Group:		Accessibility
 License:	LGPLv2+
 URL:		https://live.gnome.org/Caribou
@@ -38,8 +38,6 @@ BuildRequires:	intltool
 BuildRequires:	python-gi
 BuildRequires:	vala
 BuildRequires:	vala-devel
-BuildRequires:	python-pkg-resources
-BuildRequires:  python%{pyver}dist(zombie-imp)
 BuildRequires:	pkgconfig(gee-0.8)
 BuildRequires:	pkgconfig(atspi-2)
 BuildRequires:	pkgconfig(clutter-1.0)
@@ -50,7 +48,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(pygobject-3.0)
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(sltdl)
 
@@ -61,7 +59,7 @@ a simplified in-place on-screen keyboard.
 %package gtk2
 Summary:	GTK2 Integration for %{name}
 Group:		System/Libraries
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
 
 %description gtk2
 GTK2 Integration for %{name}.
@@ -69,7 +67,7 @@ GTK2 Integration for %{name}.
 %package gtk3
 Summary:	GTK3 Integration for %{name}
 Group:		System/Libraries
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
 
 %description gtk3
 GTK3 Integration for %{name}.
@@ -91,9 +89,9 @@ GObject Introspection interface description for %{name}.
 %package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
-Requires:	%{girname} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Requires:	%{girname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 The %{name}-devel package contains libraries and header files for
@@ -103,7 +101,7 @@ developing applications that use %{name}.
 %autosetup -p1
 
 %build
-export PYTHON=%{__python3}
+export PYTHON=%{__python}
 %configure --disable-schemas-compile
 %make_build
 
