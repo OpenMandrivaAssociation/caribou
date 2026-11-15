@@ -23,7 +23,7 @@ Source0:	https://github.com/nardholio/caribou/archive/%{version}/%{name}-%{versi
 Patch0:		caribou-0.4.20-fix-python-exec.patch
 # caribou isn't needed in gnome-shell so don't start there
 #Patch1:		change_autostart_cinnamon.patch
-Patch2:		fix-style-css.patch
+#Patch2:		fix-style-css.patch
 Patch3:		Fix-compilation-error.patch
 Patch4:		Fix-subkey-popmenu-not-showing-after-being-dismissed.patch
 Patch5:		xadapter.vala-Remove-XkbKeyTypesMask-and-f.patch
