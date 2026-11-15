@@ -13,15 +13,16 @@
 
 Summary:	A simplified in-place on-screen keyboard
 Name:		caribou
-Version:	0.4.21
-Release:	22
+Version:	0.4.22
+Release:	1
 Group:		Accessibility
 License:	LGPLv2+
 URL:		https://live.gnome.org/Caribou
-Source0:	https://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
+#Source0:	https://ftp.gnome.org/pub/GNOME/sources/caribou/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	https://github.com/nardholio/caribou/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:		caribou-0.4.20-fix-python-exec.patch
 # caribou isn't needed in gnome-shell so don't start there
-Patch1:		change_autostart_cinnamon.patch
+#Patch1:		change_autostart_cinnamon.patch
 Patch2:		fix-style-css.patch
 Patch3:		Fix-compilation-error.patch
 Patch4:		Fix-subkey-popmenu-not-showing-after-being-dismissed.patch
@@ -108,12 +109,10 @@ export PYTHON=%{__python}
 %make_build
 
 %install
-%make_install
+%make_install autostart_DATA=
 
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
-echo "OnlyShowIn=GNOME;" >> %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart.desktop
-desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/caribou-autostart.desktop || :
 
 %find_lang caribou
 
