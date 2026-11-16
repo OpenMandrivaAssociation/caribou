@@ -123,7 +123,6 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_datadir}/dbus-1/services/org.gnome.Caribou.Antler.service
 %{_libexecdir}/antler-keyboard
 %{_datadir}/vala/vapi/caribou*
-%{_sysconfdir}/xdg/autostart/caribou-autostart.desktop
 %{_datadir}/glib-2.0/schemas/*
 %{_datadir}/dbus-1/services/org.gnome.Caribou.Daemon.service
 %{py3_puresitedir}/caribou
